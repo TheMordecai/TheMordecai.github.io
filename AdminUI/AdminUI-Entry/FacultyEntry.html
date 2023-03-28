@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="US">
+    <head>
+        <title>Faculty Entry</title>
+        <style>
+            table {
+                border-collapse: collapse;
+                border: 2px solid #75443c;
+                width: 50%;
+    
+            }
+    
+            th, td {
+                text-align: center;
+                padding-top: 4px;
+                padding-bottom: 4px;
+                border-bottom: 2px solid #75443c;
+                border-right: 2px solid #75443c;
+                background-color: #ecc8af;
+            }
+    
+            th:first-child, td:first-child {
+                border-left: 1px solid white;
+            }
+    
+            th {
+                background-color: #ce796b;
+                color: white
+            }
+            select,input{
+                background-color: #ecc8af;
+                color: black;
+                border: 1px #ecc8af;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Faculty Entry Form</h1>
+        <form action="/addLogin" method="post">
+            <input hidden name='searchBy' value='faculty'></input>
+            <div style = "overflow-x: auto">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Faculty ID</th>
+                        <th>Temporary Password</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Middle Name</th>
+                        <th>Race</th>
+                        <th>Department</th>
+                        <th>Phone Num</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Birth Date</th>
+                        <th>Admin Permission</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="Username"></td>
+                        <td><input type="text" name="tempPassword"></td>
+                        <td><input type="text" name="FName"></td>
+                        <td><input type="text" name="LName"></td>
+                        <td><input type="text" name="MName"></td>
+                        <td>
+                            <select name="Race">
+                              <option value="None">Choose Not to Answer</option>
+                              <option value="White">White</option>
+                              <option value="Black">Black</option>
+                              <option value="Native American">American Indian</option>
+                              <option value="Asian">Asian</option>
+                              <option value="Native Hawaiian">Native Hawaiian</option>
+                              <option value="Other">Other</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="Department">
+                                <option value="College of Architecture">College of Architecture and Design</option>
+                                <option value="College of Engineering">College of Engineering</option>
+                                <option value="College of Education">College of Education</option>
+                                <option value="College of Hospitality">College of Hospitality</option>
+                                <option value="College of Liberal Arts">College of Liberal Arts</option>
+                                <option value="College of Nursing">College of Nursing</option>
+                                <option value="College of Optometry">College of Optometry</option>
+                                <option value="College of Pharmacy">College of Pharmacy</option>
+                                <option value="College of Technology">College of Technology</option>
+                                <option value="Graduate College of Social Work">Graduate College of Social Work</option>
+                                <option value="Honors College">Honors College</option>
+                                <option value="College of Business">College of Business</option>
+                                <option value="Law Center">Law Center</option>
+                                <option value="Graduate School of Biomedical Sciences">Graduate School of Biomedical Sciences</option>
+                                <option value="School of Public Affairs">School of Publix Affairs</option>
+                                <option value="University Library">University Library</option>
+                                <option value="Financial Aid Office">Financial Aid Office</option>
+                                <option value="Office of the University Registrar">Office of the University Registrar</option>
+                                <option value="Student Business Services">Student Business Services</option>
+                            </select>
+                        </td>
+                        <td><input type="text" name="PhoneNum"></td>
+                        <td><input type="text" name="Email"></td>
+                        <td>
+                            <select name="Gender">
+                              <option value="None">Choose Not to Answer</option>
+                              <option value="Male">Male</option>
+                              <option value="Female">Female</option>
+                              <option value="Non-Binary">Non-Binary</option>
+                              <option value="Other">Other</option>
+                            </select>
+                        </td>
+                        <td><input type="date" name="BirthDate"></td>
+                        <td><input type="checkbox" name="adminPermission"></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            <input type="submit" value="Create New Faculty">
+        </form>
+    </body>
+</html>

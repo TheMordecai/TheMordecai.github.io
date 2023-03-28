@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="US">
+    <head>
+        <title>Electronics Entry</title>
+        <style>
+            table {
+                border-collapse: collapse;
+                border: 2px solid #75443c;
+                width: 50%;
+    
+            }
+    
+            th, td {
+                text-align: center;
+                padding-top: 4px;
+                padding-bottom: 4px;
+                border-bottom: 2px solid #75443c;
+                border-right: 2px solid #75443c;
+                background-color: #ecc8af;
+            }
+    
+            th:first-child, td:first-child {
+                border-left: 1px solid white;
+            }
+    
+            th {
+                background-color: #ce796b;
+                color: white
+            }
+            select,input{
+                background-color: #ecc8af;
+                color: black;
+                border: 1px #ecc8af;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Electronics Entry Form</h1>
+        <form action="/addItem" method="post">
+            <input hidden name = "searchBy" value = "Electronic"></input>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Serial Number</th>
+                            <th>Name of Electronic</th>
+                            <!-- I kind of want to add a manufacturer column to our electronics table... -->
+                            <!-- <th>Manufacturer</th> -->
+                            <th>Dollar Value</th>
+                            <th>Availability</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" name="itemID"></td>
+                            <td><input type="text" name="itemName"></td>
+                            <!-- <td><input type="text" name="Manufacturer"></td> -->
+                            <td><input type="number" name="DValue"></td>
+                            <td>
+                                <select name="Availability">
+                                <option value="Available">Available</option>
+                                <option value="Not Available">Not Available</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="Status">
+                                <option value="New">New</option>
+                                <option value="Used - Like New">Used - Like New</option>
+                                <option value="Used - Moderate">Used - Moderate</option>
+                                <option value="Used - Poor">Used - Poor</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>

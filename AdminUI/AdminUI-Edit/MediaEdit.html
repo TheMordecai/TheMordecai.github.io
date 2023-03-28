@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <br></br>
+</form>
+<form action="/searchMedia" method="post">
+    <input hidden name='searchBy' value='media'></input>
+
+    <label for="mediaName"> Name: </label>
+    <input type="text" id="medianame" name="MediaName"></input>
+
+    <label for="Author"> Author: </label>
+    <input type="text" id="author" name="Author"></input>
+
+    <label for="MediaType"> Type of Media: </label>
+    <select id="mediatype" name="mediaType">
+        <option value="Any">Any</option>
+        <option value="dvd">DVD</option>
+        <option value="cd">CD</option>
+        <option value="newspaper">Newspaper</option>
+        <option value="magazine">Magazine</option>
+    </select><br></br>
+
+    <input type="submit" value="Search" />
+</form>
+</body>
+</html>
+
+
+
+
+
+

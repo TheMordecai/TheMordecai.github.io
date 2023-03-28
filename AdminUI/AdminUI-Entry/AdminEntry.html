@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="US">
+    <head>
+        <title>Guest Entry</title>
+        <style>
+            table {
+                border-collapse: collapse;
+                border: 2px solid #75443c;
+                width: 50%;
+    
+            }
+    
+            th, td {
+                text-align: center;
+                padding-top: 4px;
+                padding-bottom: 4px;
+                border-bottom: 2px solid #75443c;
+                border-right: 2px solid #75443c;
+                background-color: #ecc8af;
+            }
+    
+            th:first-child, td:first-child {
+                border-left: 1px solid white;
+            }
+    
+            th {
+                background-color: #ce796b;
+                color: white
+            }
+            select,input{
+                background-color: #ecc8af;
+                color: white;
+                border: 1px #ecc8af;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Admin Entry Form</h1>
+        <form action="/addLogin" method="post">
+            <input hidden name='searchBy' value='admin'></input>
+            <div style = "overflow-x: auto">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Faculty ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Middle Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="Username"></td>
+                        <td><input type="text" name="FName"></td>
+                        <td><input type="text" name="LName"></td>
+                        <td><input type="text" name="MName"></td>
+                        <td><input type="text" name="Email"></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            <input type="submit" value="Create New Admin">
+        </form>
+    </body>
+</html>

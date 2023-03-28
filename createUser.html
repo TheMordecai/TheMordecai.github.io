@@ -1,0 +1,220 @@
+<html>
+<head>
+
+    <div style="text-align: center;">
+        <h1 style="color:#495867;">New User Creation</h1>
+    </div>
+    
+        <title>Library Search Style</title>
+        <style>
+            form {
+                max-width: 750px; 
+                margin: 0 auto; /* this centers the form horizontally */
+            }   
+            body {
+                background-color: #e7ad99;
+                font-family: Arial, sans-serif;
+                color: #495867;
+                padding: 20px;
+                margin: 0;
+            }
+    
+            form {
+                background-color: #ecc8af;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+            }
+            select, input[type=text] {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 20px;
+                border: none;
+                border-radius: 5px;
+                font-size: 18px;
+                color: #495867;
+                background-color: #f8f8f8;
+                box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+            }
+            select:focus, input[type=text]:focus {
+                outline: none;
+                box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+            }
+            input[type=submit] {
+                padding: 10px 20px;
+                background-color: #495867;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                font-size: 18px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            input[type=submit]:hover {
+                background-color: #495867;
+            }
+            label {
+                font-size: 24px;
+                display: block;
+                margin-bottom: 10px;
+            }
+            #booksid, #mediaid, #electronicid {
+                margin-top: 20px;
+            }
+        </style>
+</head>
+
+<body>    
+
+    <form>
+        <label for="userType"> New User Type: </label>
+            <select id="userType" name="userType">
+                <option value="student">Student</option>
+                <option value="guest">Guest</option>
+                <option value="faculty">Faculty</option>
+                <option value="admin">Admin</option>
+            <br></br></select>
+    </form>
+
+    <div id='studentLogin' >
+    <form action="/addLogin" method="post">
+        <input hidden name='searchBy' value='student'></input>
+
+        <label for= "username"> New User ID: </label>
+        <input type="text" id="username" name="Username" required><br></br></input>
+
+        <label for= "temp_password"> Temporary Password: </label>
+        <input type="text" id="password" name="tempPassword" required><br></br></input>
+
+        <label for= "fname"> First Name: </label>
+        <input type="text" id="fname" name="FName" required><br></br></input>
+
+        <label for= "mname"> Middle Name: </label>
+        <input type="text" id="mname" name="MName" required><br></br></input>
+
+        <label for= "lname"> Last Name: </label>
+        <input type="text" id="lname" name="LName" required><br></br></input>
+
+        <label for= "major"> Major: </label>
+        <input type="text" id="major" name="Major"><br></br></input>
+
+        <label for= "email"> Email: </label>
+        <input type="text" id="email" name="Email" required><br></br></input>
+
+        <input type="submit" value="Create New User" />
+
+    </form>
+    </div>
+
+    <div id='guestLogin' >
+    <form action="/addLogin" method="post">
+        <input hidden name='searchBy' value='guest'></input>
+
+        <label for= "username"> New User ID: </label>
+        <input type="text" id="username" name="Username" required><br></br></input>
+
+        <label for= "temp_password"> Temporary Password: </label>
+        <input type="text" id="password" name="tempPassword" required><br></br></input>
+
+        <label for= "fname"> First Name: </label>
+        <input type="text" id="fname" name="FName" required><br></br></input>
+
+        <label for= "lname"> Last Name: </label>
+        <input type="text" id="lname" name="LName" required><br></br></input>
+
+        <label for= "email"> Email: </label>
+        <input type="text" id="email" name="Email" required><br></br></input>
+        
+        <input type="submit" value="Create New User" />
+
+    </form>
+    </div>
+
+    <div id='facultyLogin' >
+    <form action="/addLogin" method="post">
+        <input hidden name='searchBy' value='faculty'></input>
+
+        <label for= "username"> New User ID: </label>
+        <input type="text" id="username" name="Username" required><br></br></input>
+
+        <label for= "temp_password"> Temporary Password: </label>
+        <input type="text" id="password" name="tempPassword" required><br></br></input>
+
+        <label for= "fname"> First Name: </label>
+        <input type="text" id="fname" name="FName" required><br></br></input>
+
+        <label for= "lname"> Last Name: </label>
+        <input type="text" id="lname" name="LName" required><br></br></input>
+
+        <label for= "email"> Email: </label>
+        <input type="text" id="email" name="Email" required><br></br></input>
+
+        <label for= "department"> Department: </label>
+        <input type="text" id="department" name="Department" required><br></br></input>
+
+        <label for= "adminpermission"> Admin Permission: </label>
+        <input type="checkbox" id="adminpermission" name="adminPermission"><br></br></input>
+        
+        <input type="submit" value="Create New User" />
+
+    </form>
+    </div>
+
+    <div id='adminLogin' >
+    <form action="/addLogin" method="post">
+        <input hidden name='searchBy' value='admin'></input>
+
+        <label for= "username"> Faculty ID: </label>
+        <input type="text" id="username" name="Username" required><br></br></input>
+
+        <label for= "fname"> First Name: </label>
+        <input type="text" id="fname" name="FName" required><br></br></input>
+
+        <label for= "lname"> Last Name: </label>
+        <input type="text" id="lname" name="LName" required><br></br></input>
+
+        <label for= "email"> Email: </label>
+        <input type="text" id="email" name="Email"required><br></br></input>
+        
+        <input type="submit" value="Make Admin" />
+
+    </form>
+    </div>
+
+    <script>
+      const elem = document.getElementById('userType');
+      const studentdiv = document.getElementById('studentLogin');
+      const guestdiv = document.getElementById('guestLogin');
+      const facultydiv = document.getElementById('facultyLogin');
+      const admindiv = document.getElementById('adminLogin');
+      
+      guestdiv.style.display = 'none';
+      facultydiv.style.display = 'none';
+      admindiv.style.display = 'none';
+      elem.addEventListener('change', function handleChange(event) {
+         if (event.target.value === 'student') {
+            studentdiv.style.display = 'block';
+            guestdiv.style.display = 'none';
+            facultydiv.style.display = 'none';
+            admindiv.style.display = 'none';
+         } else if (event.target.value === 'guest') {
+            studentdiv.style.display = 'none';
+            guestdiv.style.display = 'block';
+            facultydiv.style.display = 'none';
+            admindiv.style.display = 'none';
+         } else if(event.target.value === 'faculty') {
+            studentdiv.style.display = 'none';
+            guestdiv.style.display = 'none';
+            facultydiv.style.display = 'block';
+            admindiv.style.display = 'none';
+         } else if(event.target.value === 'admin') {
+            studentdiv.style.display = 'none';
+            guestdiv.style.display = 'none';
+            facultydiv.style.display = 'none';
+            admindiv.style.display = 'block';
+         }
+      });
+   </script>
+    
+</body>
+</html>

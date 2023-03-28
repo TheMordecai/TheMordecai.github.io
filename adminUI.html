@@ -1,0 +1,212 @@
+<html>
+<head>
+	<title>Administrator</title>
+	<link rel="stylesheet" type="text/css" href="public/styles-adminUI.css">
+</head>
+<body>
+	<div class="tabs">
+		<div class="tab active" onclick="openTab('datamanagement')">Data Entry</div>
+		<div class="tab" onclick="openTab('datamodification')">Data Modification</div>
+		<div class="tab" onclick="openTab('datareports')">Data Reports</div>
+	</div>
+	<div class="tabcontent active" id="datamanagement">
+		<h2>Data Management Content Goes Here</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id mauris sed libero pharetra finibus in eget sapien. Donec tincidunt, nibh a eleifend fringilla, purus dolor facilisis est, eget dignissim eros mi eu urna.</p>
+
+		<div>
+			<select class="Drop-down" id="TableSelection" onchange="selectOption()">
+				<option value="">Please select a table</option>
+				<option value="Transactions">Transactions</option>
+				<option value="Books">Books</option>
+				<option value="Electronics">Electronics</option>
+				<option value="Objects">Objects</option>
+				<option value="Media">Media</option>
+				<option value="Student">Student</option>
+				<option value="Guest">Guest</option>
+				<option value="Faculty">Faculty</option>
+				<option value="Admin">Admin</option>
+			</select>
+			<div id="content"></div>
+		</div>
+	</div>
+
+
+	<div class="tabcontent" id="datareports">
+		<h2>Data Reports Content Goes Here</h2>
+		<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.</p>
+	</div>
+	<div class="tabcontent" id="datamodification">
+		<h2>Data Modification Content Goes Here</h2>
+		<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.</p>
+		<div>
+			<select class="Drop-down" id="TableSelectionEdit" onchange="SelectOptionEdit()">
+				<option value="">Please select a table</option>
+				<option value="Transactions">Transactions</option>
+				<option value="Books">Books</option>
+				<option value="Electronics">Electronics</option>
+				<option value="Objects">Objects</option>
+				<option value="Media">Media</option>
+				<option value="Student">Student</option>
+				<option value="Faculty">Faculty</option>
+				<option value="Guest">Guest</option>
+				</select>
+				<div id="Editcontent"></div>
+				</div>
+				
+	</div>
+
+
+	<script>
+		function openTab(tabName) {
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].classList.remove("active");
+			}
+			tablinks = document.getElementsByClassName("tab");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].classList.remove("active");
+			}
+			document.getElementById(tabName).classList.add("active");
+			event.currentTarget.classList.add("active");
+			
+		}
+
+
+		function selectOption() {
+ 			 var selectedOption = document.getElementById("TableSelection").value;
+ 			 var contentDiv = document.getElementById("content");
+
+ 			 switch (selectedOption) {
+			 case "Transactions":
+			 	fetch("http://localhost:3000/TransactionEntry")
+                .then(response => response.text())
+                .then(html => {
+                    contentDiv.innerHTML = html;
+                });
+			break;
+   			 case "Books":
+				fetch("http://localhost:3000/BookEntry")
+                .then(response => response.text())
+                .then(html => {
+                    contentDiv.innerHTML = html;
+                });
+     		 break;
+    		case "Electronics":
+				fetch("http://localhost:3000/ElectronicsEntry")
+                .then(response => response.text())
+                .then(html => {
+                    contentDiv.innerHTML = html;
+                });
+     		 break;
+    		case "Objects":
+				fetch("http://localhost:3000/ObjectEntry")
+                .then(response => response.text())
+                .then(html => {
+                    contentDiv.innerHTML = html;
+                });
+      		break;
+			case "Media":
+				fetch("http://localhost:3000/MediaEntry")
+                .then(response => response.text())
+                .then(html => {
+                    contentDiv.innerHTML = html;
+                });
+      		break;
+			case "Student":
+			fetch("http://localhost:3000/StudentEntry")
+                .then(response => response.text())
+                .then(html => {
+                    contentDiv.innerHTML = html;
+                });
+      		break;
+			case "Guest":
+			fetch("http://localhost:3000/GuestEntry")
+                .then(response => response.text())
+                .then(html => {
+                    contentDiv.innerHTML = html;
+                });
+      		break;
+			case "Faculty":
+			fetch("http://localhost:3000/FacultyEntry")
+                .then(response => response.text())
+                .then(html => {
+                    contentDiv.innerHTML = html;
+                });
+      		break;
+			case "Admin":
+			fetch("http://localhost:3000/AdminEntry")
+                .then(response => response.text())
+                .then(html => {
+                    contentDiv.innerHTML = html;
+                });
+      		break;
+    		default:
+     		 contentDiv.innerHTML = "";
+  }
+}
+		function SelectOptionEdit(){
+			var selectedOption = document.getElementById("TableSelectionEdit").value;
+ 			 var contentDiv = document.getElementById("Editcontent");
+
+
+			  switch (selectedOption) {
+			 case "transactions":
+			contentDiv.innerHTML = "<h1>Option 2 Content</h1><p>This is the content for Transactions.</p>";
+   			 case "Books":
+				fetch("http://localhost:3000/BookEdit")
+                .then(response => response.text())
+                .then(html => {
+                    contentDiv.innerHTML = html;
+                });
+     		 break;
+    		case "Electronics":
+			fetch("http://localhost:3000/ElectronicsEdit")
+                .then(response => response.text())
+                .then(html => {
+                    contentDiv.innerHTML = html;
+                });
+     		 break;
+    		case "Objects":
+			fetch("http://localhost:3000/ObjectEdit")
+                .then(response => response.text())
+                .then(html => {
+                    contentDiv.innerHTML = html;
+                });
+      		break;
+			case "Media":
+			fetch("http://localhost:3000/MediaEdit")
+                .then(response => response.text())
+                .then(html => {
+                    contentDiv.innerHTML = html;
+                });
+      		break;
+			case "Student":
+			fetch("http://localhost:3000/StudentEdit")
+                .then(response => response.text())
+                .then(html => {
+                    contentDiv.innerHTML = html;
+                });
+      		break;
+			case "Faculty":
+			fetch("http://localhost:3000/FacultyEdit")
+                .then(response => response.text())
+                .then(html => {
+                    contentDiv.innerHTML = html;
+                });
+      		break;
+			case "Guest":
+			fetch("http://localhost:3000/GuestEdit")
+                .then(response => response.text())
+                .then(html => {
+                    contentDiv.innerHTML = html;
+                });
+      		break;
+    		default:
+     		 contentDiv.innerHTML = "";
+  }
+}
+	</script>
+</body>
+</html>
+
