@@ -1,9 +1,68 @@
 <html>
-    <h1>
-        <b>
-            Library Search
-        </b>
-    </h1>
+    <head>
+
+        <div style="text-align: center;">
+            <h1 style="color:#495867;">Search</h1>
+        </div>
+        
+            <title>Library Database</title>
+            <style>
+                form {
+                    max-width: 750px; 
+                    margin: 0 auto; /* this centers the form horizontally */
+                }   
+                body {
+                    background-color: #e7ad99;
+                    font-family: Arial, sans-serif;
+                    color: #495867;
+                    padding: 20px;
+                    margin: 0;
+                }
+        
+                form {
+                    background-color: #ecc8af;
+                    padding: 20px;
+                    border-radius: 10px;
+                    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+                }
+                select, input[type=text] {
+                    width: 100%;
+                    padding: 10px;
+                    margin-bottom: 20px;
+                    border: none;
+                    border-radius: 5px;
+                    font-size: 18px;
+                    color: #495867;
+                    background-color: #f8f8f8;
+                    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+                }
+                select:focus, input[type=text]:focus {
+                    outline: none;
+                    box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+                }
+                input[type=submit] {
+                    padding: 10px 20px;
+                    background-color: #495867;
+                    color: #fff;
+                    border: none;
+                    border-radius: 5px;
+                    font-size: 18px;
+                    cursor: pointer;
+                    transition: background-color 0.3s;
+                }
+                input[type=submit]:hover {
+                    background-color: #495867;
+                }
+                label {
+                    font-size: 24px;
+                    display: block;
+                    margin-bottom: 10px;
+                }
+                #booksid, #mediaid, #electronicid {
+                    margin-top: 20px;
+                }
+            </style>
+    </head>
 <body>
     <form>
     <label for="selectType"> Select Type: </label>

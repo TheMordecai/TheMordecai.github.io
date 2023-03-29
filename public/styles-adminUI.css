@@ -1,4 +1,6 @@
 .tab {
+    font-family: 'Open Sans', sans-serif;
+	font-weight: 100;
     background-color: #ce796b;
     color: white;
     display: inline-block;
@@ -9,6 +11,8 @@
 }
 
 .tab.active {
+    font-family: 'Open Sans', sans-serif;
+	font-weight: 100;
     background-color: #ecc8af;
     color: #ce796b;
     border: 1px solid #ce796b;
@@ -16,17 +20,22 @@
 }
 
 .tabcontent {
+    font-family: 'Open Sans', sans-serif;
+	font-weight: 100;
     display: none;
     padding: 20px;
     border: 1px solid #ce796b;
     }
 
 .tabcontent.active {
+    font-family: 'Open Sans', sans-serif;
+	font-weight: 100;
     display: block;
 }
 .Drop-down{
 
-    
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
     width: 200px;
     height: 40px;
     border-radius: 20px;
@@ -34,4 +43,19 @@
     text-align: center;
     background-color: #ce796b;
     color: white;
+}
+
+.Button{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    border: 2px solid white;
+    text-align: center;
+    background-color: #ce796b;
+    color: white;
+
+
+
 }

@@ -59,10 +59,10 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input type="text" name="Username"></td>
-                        <td><input type="text" name="tempPassword"></td>
-                        <td><input type="text" name="FName"></td>
-                        <td><input type="text" name="LName"></td>
+                        <td><input type="text" name="Username" required></td>
+                        <td><input type="text" name="tempPassword" required></td>
+                        <td><input type="text" name="FName" required></td>
+                        <td><input type="text" name="LName" required></td>
                         <td><input type="text" name="MName"></td>
                         <td>
                             <select name="Race">
@@ -76,7 +76,7 @@
                             </select>
                         </td>
                         <td>
-                            <select name="Department">
+                            <select name="Department" required>
                                 <option value="College of Architecture">College of Architecture and Design</option>
                                 <option value="College of Engineering">College of Engineering</option>
                                 <option value="College of Education">College of Education</option>
@@ -99,7 +99,7 @@
                             </select>
                         </td>
                         <td><input type="text" name="PhoneNum"></td>
-                        <td><input type="text" name="Email"></td>
+                        <td><input type="text" name="Email" required></td>
                         <td>
                             <select name="Gender">
                               <option value="None">Choose Not to Answer</option>
@@ -115,7 +115,7 @@
                 </tbody>
             </table>
             </div>
-            <input type="submit" value="Create New Faculty">
+            <input type="submit" value="Create New Faculty" onClick = "return checkUserFacname(this.form)">
         </form>
     </body>
 </html>

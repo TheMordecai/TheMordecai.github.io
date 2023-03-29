@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="US">
+    <head>
+        <title>Reservation Entry</title>
+        <style>
+            table {
+                border-collapse: collapse;
+                border: 2px solid #75443c;
+                width: 50%;
+    
+            }
+    
+            th, td {
+                text-align: center;
+                padding-top: 4px;
+                padding-bottom: 4px;
+                border-bottom: 2px solid #75443c;
+                border-right: 2px solid #75443c;
+                background-color: #ecc8af;
+            }
+    
+            th:first-child, td:first-child {
+                border-left: 1px solid white;
+            }
+    
+            th {
+                background-color: #ce796b;
+                color: white
+            }
+            select {
+                background-color: #ecc8af;
+                color: black;
+                border: 1px #ecc8af;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Reservation Entry Form</h1>
+        <form action="/addItem" method="post">
+            <input type="submit" value="Submit"><br><br>
+            <label for="BID">Borrower ID:</label><br>            
+            <input type="text" id="BID" name="BID"><br><br>
+
+            <!-- This is the table for reserving a book -->
+            <button type="button" onclick="addItem()">Add Book</button>
+            <button type="button" onclick="deleteItem()">Remove Book</button>
+            <input hidden name = "searchBy" value = "Transaction"></input>
+            <div style="overflow-x: auto;">
+                <label for="cellOne">ISBN: </label>
+                <input type='text' id='cellOne' />
+                <label for="cellTwo">Title: </label>
+                <input type='text' id='cellTwo' />
+                <table id="myTable">
+                    <thead>
+                        <tr>
+                            <th>ISBN</th>
+                            <th>Title</th>
+                            <!-- <th>Creation Date</th>
+                            <th>Pick Up Date</th>
+                            <th>Expiration Date</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <!-- <td><input type="date" name="Creation Date"></td>
+                            <td><input type="date" name="PickDate"></td>
+                            <td><input type="date" name="Expiration Date"></td> -->
+                    </tbody>
+                </table>
+            </div>
+            <br><br>
+
+            <!-- This is the table for reserving an electronic -->
+            <button type="button" onclick="addItem()">Add Device</button>
+            <button type="button" onclick="deleteItem()">Remove Device</button>
+            <input hidden name = "searchBy" value = "Transaction"></input>
+            <div style="overflow-x: auto;">
+                <label for="cellOne">Serial No: </label>
+                <input type='text' id='cellOne' />
+                <label for="cellTwo">Name: </label>
+                <input type='text' id='cellTwo' />
+                <table id="myTable">
+                    <thead>
+                        <tr>
+                            <th>Serial No</th>
+                            <th>Name</th>
+                            <!-- <th>Creation Date</th>
+                            <th>Pick Up Date</th>
+                            <th>Expiration Date</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <!-- <td><input type="date" name="Creation Date"></td>
+                            <td><input type="date" name="PickDate"></td>
+                            <td><input type="date" name="Expiration Date"></td> -->
+                    </tbody>
+                </table>
+            </div>
+            <br><br>
+
+            <!-- This is the table for reserving Media -->
+            <button type="button" onclick="addItem()">Add Media</button>
+            <button type="button" onclick="deleteItem()">Remove Media</button>
+            <input hidden name = "searchBy" value = "Transaction"></input>
+            <div style="overflow-x: auto;">
+                <label for="cellOne">Media ID: </label>
+                <input type='text' id='cellOne' />
+                <label for="cellTwo">Title: </label>
+                <input type='text' id='cellTwo' />
+                <table id="myTable">
+                    <thead>
+                        <tr>
+                            <th>Media ID</th>
+                            <th>Title</th>
+                            <!-- <th>Creation Date</th>
+                            <th>Pick Up Date</th>
+                            <th>Expiration Date</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <!-- <td><input type="date" name="Creation Date"></td>
+                            <td><input type="date" name="PickDate"></td>
+                            <td><input type="date" name="Expiration Date"></td> -->
+                    </tbody>
+                </table>
+            </div>
+            <br><br>
+
+            <!-- This is the table for reserving an object -->
+            <button type="button" onclick="addItem()">Add Object</button>
+            <button type="button" onclick="deleteItem()">Remove Object</button>
+            <input hidden name = "searchBy" value = "Transaction"></input>
+            <div style="overflow-x: auto;">
+                <label for="cellOne">Object ID: </label>
+                <input type='text' id='cellOne' />
+                <label for="cellTwo">Description: </label>
+                <input type='text' id='cellTwo' />
+                <table id="myTable">
+                    <thead>
+                        <tr>
+                            <th>Object ID</th>
+                            <th>Description</th>
+                            <!-- <th>Creation Date</th>
+                            <th>Pick Up Date</th>
+                            <th>Expiration Date</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <!-- <td><input type="date" name="Creation Date"></td>
+                            <td><input type="date" name="PickDate"></td>
+                            <td><input type="date" name="Expiration Date"></td> -->
+                    </tbody>
+                </table>
+            </div>
+
+        </form>
+
+        <script>
+        function addItem() {
+        var table = document.getElementById("myTable");
+        var row = table.insertRow(1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        cell1.innerHTML = document.getElementById('cellOne').value;
+        cell2.innerHTML = document.getElementById('cellTwo').value;
+        }
+
+        function deleteItem() {
+        var table = document.getElementById("myTable");
+        var row = table.deleteRow(1);
+        }
+        </script>
+
+    </body>
+</html>

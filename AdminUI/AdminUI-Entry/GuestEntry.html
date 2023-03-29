@@ -33,6 +33,15 @@
                 border: 1px #ecc8af;
             }
         </style>
+        <script>
+            function generateUsername() {
+                let username = '';
+                for (let i = 0; i < 9; i++) {
+                    username += Math.floor(Math.random() * 10);
+                }
+                username = "G" + username;
+            }
+        </script>
     </head>
 
     <body>
@@ -43,7 +52,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Guest ID</th>
+                        <!-- <th>Generate Guest ID</th> -->
                         <th>Temporary Password</th>
                         <th>First Name</th>
                         <th>Last Name</th>
@@ -57,10 +66,10 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input type="text" name="Username"></td>
-                        <td><input type="text" name="tempPassword"></td>
-                        <td><input type="text" name="FName"></td>
-                        <td><input type="text" name="LName"></td>
+                        <!--<td><input type="button" name = "Username" value="Generate" onclick="generateUsername()"></td> -->
+                        <td><input type="text" name="tempPassword" required></td>
+                        <td><input type="text" name="FName" required></td>
+                        <td><input type="text" name="LName" required></td>
                         <td><input type="text" name="MName"></td>
                         <td>
                             <select name="Race">
@@ -74,7 +83,7 @@
                             </select>
                         </td>
                         <td><input type="text" name="PhoneNum"></td>
-                        <td><input type="text" name="Email"></td>
+                        <td><input type="text" name="Email" required></td>
                         <td>
                             <select name="Gender">
                               <option value="None">Choose Not to Answer</option>
@@ -91,5 +100,6 @@
             </div>
             <input type="submit" value="Create New Guest">
         </form>
+        <h2><%= uname %></h2>
     </body>
 </html>

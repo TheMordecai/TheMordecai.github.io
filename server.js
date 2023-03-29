@@ -5,9 +5,26 @@ var fs = require("fs");
 var path = require("path");
 
 //-- These are for session handling.
-//const {UserSession}  = require("./UserSession");
-//const crypto = require('crypto');
-//var sessions_map = require("./sessionhashmap");
+const {UserSession}  = require("./UserSession");
+const crypto = require('crypto');
+var sessions_map = require("./sessionhashmap");
+
+function parseCookies (request) {
+  const list = {};
+  const cookieHeader = request.headers?.cookie;
+  if (!cookieHeader) return list;
+
+  cookieHeader.split(`;`).forEach(function(cookie) {
+      let [ name, ...rest] = cookie.split(`=`);
+      name = name?.trim();
+      if (!name) return;
+      const value = rest.join(`=`).trim();
+      if (!value) return;
+      list[name] = decodeURIComponent(value);
+  });
+
+  return list;
+}
 
 function start(route, handle) {
   function onRequest(request, response) {
@@ -24,6 +41,28 @@ function start(route, handle) {
       response.end(frstream);
       return;          
     }
+    let coks = parseCookies(request);
+    let sessId = coks['sessionId'];
+    let login_req = false;
+    console.log("------------ from brower: " + sessId + " ------------");
+    if(sessId && !sessions_map.auth.get(sessId)) {
+      console.log("Deleting old session: " + sessId);
+      sessId = null;
+    }
+    if(!sessId) {
+      sessId = crypto.randomUUID();
+      login_req = true;
+      console.log("created uuid: " + sessId);
+      var usession = new UserSession(sessId, "Ava", "Timpu");
+      sessions_map.auth.set(sessId, usession);
+    }
+    let userSess = sessions_map.auth.get(sessId);
+    // if(!userSess.getLoggedDT() || login_req) {
+    //   requestHandlers.loginverify(request, response, userSess);
+    //   return;
+    // }
+    console.log("session id: " + userSess.getSessonId());
+    console.log("session user: " + userSess.getUserName());
 
     if (pathname.startsWith("/public/")) {
       var filePath = path.join(__dirname, pathname);
@@ -54,8 +93,9 @@ function start(route, handle) {
       postData += chunk;
     });
 
-    request.addListener("end", function() {
+    request.addListener("end", function() {      
       route(handle, pathname, response, postData); //new
+      console.log("Request handling complete");
     });
   }
     // route(handle, pathname, response);

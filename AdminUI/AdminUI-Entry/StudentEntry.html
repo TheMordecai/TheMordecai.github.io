@@ -58,11 +58,11 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input type="text" name="Username"></td>
-                        <td><input type="text" name="tempPassword"></td>
-                        <td><input type="text" name="FName"></td>
+                        <td><input type="text" name="Username" required></td>
+                        <td><input type="text" name="tempPassword" required></td>
+                        <td><input type="text" name="FName" required></td>
                         <td><input type="text" name="MName"></td>
-                        <td><input type="text" name="LName"></td>
+                        <td><input type="text" name="LName" required></td>
                         <td>
                             <select name="Race">
                               <option value="None">Choose Not to Answer</option>
@@ -75,7 +75,7 @@
                             </select>
                         </td>
                         <td>
-                            <select name="Major">
+                            <select name="Major" required>
                                 <option value="Undecided">Undecided</option>                                                                                                                                                                                                                
                                 <option value="Accounting">Accounting</option>
                                 <option value="Anthropology">Anthropology</option>
@@ -105,7 +105,7 @@
                             </select>
                         </td>
                         <td><input type="text" name="PhoneNum"></td>
-                        <td><input type="text" name="Email"></td>
+                        <td><input type="text" name="Email" required></td>
                         <td>
                             <select name="Gender">
                               <option value="None">Choose Not to Answer</option>
@@ -120,7 +120,7 @@
                 </tbody>
             </table>
             </div>
-            <input type="submit" value="Create New Student">
+            <input type="submit" value="Create New Student" onClick = "return checkUserStuname(this.form)">
         </form>
     </body>
-</html>
+</html> 

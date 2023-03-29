@@ -27,50 +27,215 @@
                 background-color: #ce796b;
                 color: white
             }
-            select,input{
+            select {
                 background-color: #ecc8af;
                 color: black;
                 border: 1px #ecc8af;
+            }
+
+            .oldReservation {
+                display: none;
             }
         </style>
     </head>
 
     <body>
-        <form action="/addItem" method="post"></form>
         <h1>Transaction Entry Form</h1>
-        <form>
-            <input hidden name = "searchBy" value = "Transaction"></input>
-            <div style="overflow-x: auto;">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Pick Up Date</th>
-                            <!-- <th>Date Returned</th>
-                            <th>Creation Date</th>
-                            <th>Creation Time</th>
-                            <th>Expiration Date</th> -->
-                            <th>Borrower ID</th>
-                            <th>Item ID</th>
-                            <th>Reservation?</th>
-                            <th>Active/Void Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><input type="date" name="PickDate"></td>
-                            <!-- <td><input type="date" name="Date Returned"></td>
-                            <td><input type="date" name="Creation Date"></td>
-                            <td><input type="time" name="Creation Time"></td>
-                            <td><input type="date" name="Expiration Date"></td> -->
-                            <td><input type="text" name="BID"></td>
-                            <td><input type="text" name="itemID"></td>
-                            <td><input type="checkbox" name="Reservation" value="True"></td>
-                            <td><input type="checkbox" name="AVStatus" value="True"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <input type="submit" value="Submit">
-        </form>
+
+        <div class="newTransaction">
+            <button onclick="pullReservation()">Search from Reservations</button>
+        </div>
+        <div class="oldReservation">
+            <button onclick="createTransaction()">Create new Transaction</button>
+        </div>
+        
+        <br><br><br><br>
+
+        <div class="newTransaction">
+            <form action="/addItem" method="post">
+                <input type="submit" value="Submit"><br><br>
+                <label for="BID">Borrower ID:</label><br>            
+                <input type="text" id="BID" name="BID" placeholder="Enter Borrower's ID..."><br><br>
+
+                <!-- This is the table for borrowing a book -->
+                <button type="button" onclick="addItem()">Add Book</button>
+                <button type="button" onclick="deleteItem()">Remove Book</button>
+                <input hidden name = "searchBy" value = "Transaction"></input>
+                <div style="overflow-x: auto;">
+                    <label for="cellOne">ISBN: </label>
+                    <input type='text' id='cellOne' />
+                    <label for="cellTwo">Title: </label>
+                    <input type='text' id='cellTwo' />
+                    <table id="myTable">
+                        <thead>
+                            <tr>
+                                <th>ISBN</th>
+                                <th>Title</th>
+                                <!-- <th>Creation Date</th>
+                                <th>Pick Up Date</th>
+                                <th>Expiration Date</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <!-- <td><input type="date" name="Creation Date"></td>
+                                <td><input type="date" name="PickDate"></td>
+                                <td><input type="date" name="Expiration Date"></td> -->
+                        </tbody>
+                    </table>
+                </div>
+                <br><br>
+
+                <!-- This is the table for borrowing an electronic -->
+                <button type="button" onclick="addItem()">Add Device</button>
+                <button type="button" onclick="deleteItem()">Remove Device</button>
+                <input hidden name = "searchBy" value = "Transaction"></input>
+                <div style="overflow-x: auto;">
+                    <label for="cellOne">Serial No: </label>
+                    <input type='text' id='cellOne' />
+                    <label for="cellTwo">Name: </label>
+                    <input type='text' id='cellTwo' />
+                    <table id="myTable">
+                        <thead>
+                            <tr>
+                                <th>Serial No</th>
+                                <th>Name</th>
+                                <!-- <th>Creation Date</th>
+                                <th>Pick Up Date</th>
+                                <th>Expiration Date</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <!-- <td><input type="date" name="Creation Date"></td>
+                                <td><input type="date" name="PickDate"></td>
+                                <td><input type="date" name="Expiration Date"></td> -->
+                        </tbody>
+                    </table>
+                </div>
+                <br><br>
+
+                <!-- This is the table for borrowing Media -->
+                <button type="button" onclick="addItem()">Add Media</button>
+                <button type="button" onclick="deleteItem()">Remove Media</button>
+                <input hidden name = "searchBy" value = "Transaction"></input>
+                <div style="overflow-x: auto;">
+                    <label for="cellOne">Media ID: </label>
+                    <input type='text' id='cellOne' />
+                    <label for="cellTwo">Title: </label>
+                    <input type='text' id='cellTwo' />
+                    <table id="myTable">
+                        <thead>
+                            <tr>
+                                <th>Media ID</th>
+                                <th>Title</th>
+                                <!-- <th>Creation Date</th>
+                                <th>Pick Up Date</th>
+                                <th>Expiration Date</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <!-- <td><input type="date" name="Creation Date"></td>
+                                <td><input type="date" name="PickDate"></td>
+                                <td><input type="date" name="Expiration Date"></td> -->
+                        </tbody>
+                    </table>
+                </div>
+                <br><br>
+
+                <!-- This is the table for borrowing an object -->
+                <button type="button" onclick="addItem()">Add Object</button>
+                <button type="button" onclick="deleteItem()">Remove Object</button>
+                <input hidden name = "searchBy" value = "Transaction"></input>
+                <div style="overflow-x: auto;">
+                    <label for="cellOne">Object ID: </label>
+                    <input type='text' id='cellOne' />
+                    <label for="cellTwo">Description: </label>
+                    <input type='text' id='cellTwo' />
+                    <table id="myTable">
+                        <thead>
+                            <tr>
+                                <th>Object ID</th>
+                                <th>Description</th>
+                                <!-- <th>Creation Date</th>
+                                <th>Pick Up Date</th>
+                                <th>Expiration Date</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <!-- <td><input type="date" name="Creation Date"></td>
+                                <td><input type="date" name="PickDate"></td>
+                                <td><input type="date" name="Expiration Date"></td> -->
+                        </tbody>
+                    </table>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="oldReservation">
+            <form action="/addItem" method="post">
+                <input type="submit" value="Submit"><br><br>
+                <label for="BID">Borrower ID:</label><br>            
+                <input type="text" id="BID" name="BID" placeholder="Enter Reserver's ID..."><br><br>
+            </form>
+        </div>
+
+        <script>
+        function addItem() {
+        var table = document.getElementById("myTable");
+        var row = table.insertRow(1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        cell1.innerHTML = document.getElementById('cellOne').value;
+        cell2.innerHTML = document.getElementById('cellTwo').value;
+        }
+
+        function deleteItem() {
+        var table = document.getElementById("myTable");
+        var row = table.deleteRow(1);
+        }
+
+        function pullReservation() {
+            var x = document.getElementsByClassName("newTransaction");
+            var y = document.getElementsByClassName("oldReservation");
+            for (var i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            for (var i = 0; i < y.length; i++) {
+                y[i].style.display = "block";
+            }
+        }
+
+        function createTransaction() {
+            var x = document.getElementsByClassName("newTransaction");
+            var y = document.getElementsByClassName("oldReservation");
+            for (var i = 0; i < x.length; i++) {
+                x[i].style.display = "block";
+            }
+            for (var i = 0; i < y.length; i++) {
+                y[i].style.display = "none";
+            }
+        }
+        </script>
     </body>
 </html>
+
+<!-- 
+function insertTransaction(response, postdata) {
+	sql.connect(config).then(function() {
+        var req = new sql.Request();
+
+	var querystring = require('querystring');
+	var params = querystring.parse(postData);
+	var recieptNum = params['Reciept_Num'];
+	var itemID = param['Item_ID'];
+	var userID = param['User_ID'];
+
+	req.input('recieptNum', sql.NVarChar, recieptNum);
+	req.input('itemID', sql.NVarChar, itemID);
+	req.input('userID', sql.NVarChar, userID);
+
+  // var sql = "INSERT INTO Transactions (Reciept_Num, Creation_Date, Creation_Time, Return_Due_Date) VALUES ('Company Inc', 'Highway 37')";
+  // con.query("INSERT INTO Transactions ()")
+	})
+}
+-->

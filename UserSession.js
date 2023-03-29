@@ -21,13 +21,25 @@ class UserSession {
         //         + currentdate.getMinutes() + ":" 
         //         + currentdate.getSeconds();
         this.sessionTime = new Date().toLocaleString().replace(',','');
-        this.loggedDT = this.sessionTime;
+        this.logginId = null;
+        this.loggedDT = null;
     }
-
+    setName(firstname, lastname) {
+        this.firstName = firstname;
+        this.lastName = lastname;
+    }
+    setLoggedDT() {
+        this.loggedDt = new Date().toLocaleString().replace(',','');
+    }
     getSessonId() {
         return this.sessionId;
     }
-
+    setLogginId(lid) {
+        this.logginId = lid;
+    }
+    getLogginId() {
+        return this.logginId;
+    }
     getUserName() {
         return this.firstName + " " + this.lastName;
     }
@@ -41,7 +53,6 @@ class UserSession {
     }
 
     refreshSession() {
-        var currentdate = new Date(); 
         this.sessionTime = new Date().toLocaleString().replace(',','');
     }
 
